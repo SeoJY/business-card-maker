@@ -1,0 +1,23 @@
+.login {
+  &-wrap {
+    overflow: hidden;
+    width: 400px;
+    border-radius: 5px;
+    background-color: $makerWhite;
+  }
+
+  &-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  &-title {
+    margin-bottom: 16px;
+  }
+
+  &-lst {
+    li {
+      margin-bottom: 8px;
+    }
+  }
+}

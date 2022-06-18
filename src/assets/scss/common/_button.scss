@@ -1,0 +1,36 @@
+.btn {
+  border-radius: 5px;
+
+  &-small {
+    padding: 5px 10px;
+    font-weight: 300;
+    font-size: 12px;
+  }
+
+  &-medium {
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  &-large {
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  &-full {
+    width: 100%;
+  }
+
+  &-white {
+    background-color: $makerWhite;
+    border: 1px solid $makerGrey;
+    color: $makerBlack;
+  }
+  
+  &-blue {
+    background-color: $makerBlue;
+    color: $makerWhite;
+  }
+}

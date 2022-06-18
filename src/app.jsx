@@ -1,10 +1,9 @@
+import Login from "./components/login/login";
 
-function App() {
+function App({authService}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello
-      </header>
+    <div className="wrap">
+      <Login authService={authService} />
     </div>
   );
 }
