@@ -1,0 +1,81 @@
+.card {
+  display: flex;
+  margin-top: 20px;
+  padding: 20px 30px;
+  border-radius: 20px;
+  align-items: center;
+  
+  &-thumb {
+    overflow: hidden;
+    position: relative;
+    flex: 0 0 150px;
+    border-radius: 50%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 1px solid rgba(0,0,0,.05);
+      border-radius: 50%;
+      content: '';
+    }
+  }
+
+  &-info {
+    flex: 1;
+    padding-left: 30px;
+
+    li {
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.5;
+
+      &.name {
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      &.message {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(0,0,0,.1);
+        q {
+          font-size: 15px;
+          font-weight: 100;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  &.theme {
+    &-dark {
+      background-color: $makerBlack;
+      color: $makerWhite;
+      li.message {
+        border-top: 1px solid rgba(255,255,255,.5);
+      }
+    }
+
+    &-light {
+      background-color: $makerWhite;
+      border: 1px solid $makerLightGrey;
+      color: $makerBlack;
+    }
+
+    &-jordi {
+      background-color: $makerJordi;
+      border: 1px solid $makerDarkJordi;
+      color: $makerGreen;
+      li.message {
+        border-top: 1px solid $makerDarkJordi;
+      }
+    }
+  }
+}

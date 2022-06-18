@@ -1,0 +1,45 @@
+.card-editor {
+  &-form {
+    margin-bottom: 20px;
+    border-top: 1px solid $makerGrey;
+    border-left: 1px solid $makerGrey;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .inp {
+      &-text,
+      &-select,
+      &-textarea {
+        flex: 1 1 30%;
+        border-width: 0 1px 1px 0;
+      }
+
+      &-textarea {
+        flex-basis: 100%;
+      }
+    }
+    
+  }
+
+  &-btn-area {
+    display: flex;
+    flex: 1 0 100%;
+
+    .inp-file,
+    .btn {
+      flex: 1 1 50%;
+    }
+
+    .inp-file {
+      border-width: 0 1px 1px 0;
+    }
+
+    .btn {
+      border-radius: 0;
+    }
+  }
+}
+

@@ -6,4 +6,29 @@
   background-color: $makerLightGrey;
 }
 
+.inp {
+  &-text,
+  &-select,
+  &-textarea,
+  &-file {
+    border: 1px solid $makerGrey;
+    font-size: 16px;
+    line-height: 34px;
+  }
+  &-text {
+    padding: 0 5px;
+  }
+
+  &-select {
+    padding: 0 5px;
+  }
+
+  &-textarea {
+    padding: 5px;
+    font-family: $quoteFont;
+    font-style: italic;
+    resize: none;
+  }
+}
+
 @import 'button';
