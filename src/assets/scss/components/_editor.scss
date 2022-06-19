@@ -40,6 +40,25 @@
     .btn {
       border-radius: 0;
     }
+
+    .loader {
+      width: 23px;
+      height: 23px;
+      margin: 6px auto 7px;
+      border-radius: 50%;
+      border: 3px solid $makerLightGrey;
+      border-top: 3px solid $makerPink;
+      animation: spin 1.5s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
