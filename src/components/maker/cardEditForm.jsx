@@ -1,11 +1,10 @@
 import { React, useRef } from 'react';
 import Button from './inputs/button';
-import ImgFileInput from './inputs/imgFileInput';
 import Option from './inputs/option';
 
-const CardEditForm = ({ card, updateCard, deleteCard }) => {
+const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   const options = ['Light', 'Dark', 'Jordi'];
-  const {name, company, title, email, message, theme} = card; 
+  const {name, company, title, email, message, theme, fileName} = card; 
 
   const nameRef = useRef();
   const companyRef = useRef();
@@ -29,6 +28,14 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
     deleteCard(card);
   }
 
+  const onFileChange = file => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url
+    })
+  }
+
   return (
     <li className="card-editor-form">
       <form ref={formRef} action="">
@@ -46,7 +53,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
         <input ref={emailRef} type="text" name="email" defaultValue={email} placeholder="Email Address" className="inp-text" onChange={onChange} />
         <textarea ref={messageRef} name="message" defaultValue={message} placeholder="Input message" className="inp-textarea" onChange={onChange} />
         <div className="card-editor-btn-area">
-          <ImgFileInput />
+          <FileInput name={fileName} onFileChange={onFileChange} />
           <Button content="Delete" size="medium" color="blue" onClickFunc={onSubmitDelete} isfull />
         </div>
       </form>

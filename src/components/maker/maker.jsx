@@ -5,7 +5,7 @@ import Header from '../header';
 import MakerEditor from './makerEditor';
 import MakerPreview from './makerPreview';
 
-const Maker = ({ authService }) => {
+const Maker = ({ FileInput, authService }) => {
   // 배열을 쭉 검색하는 것보다는 object 방식으로 key를 찾아서 업데이트하는 방식이 더 빠름
   const [cards, setCards] = useState(
     {
@@ -17,7 +17,7 @@ const Maker = ({ authService }) => {
         email: 'email@email.com',
         message: 'Not all those who wander are lost.',
         theme: 'Dark',
-        fileName: 'jaeyoung',
+        fileName: null,
         fileURL: null
       },
       2: {
@@ -28,7 +28,7 @@ const Maker = ({ authService }) => {
         email: 'jordi@email.com',
         message: '니니니 니니니니니',
         theme: 'Jordi',
-        fileName: 'jordi',
+        fileName: null,
         fileURL: null
       },
       3: {
@@ -39,7 +39,7 @@ const Maker = ({ authService }) => {
         email: 'kuma@email.com',
         message: '맛있어',
         theme: 'Light',
-        fileName: 'naganokuma',
+        fileName: null,
         fileURL: null
       }
     }
@@ -87,7 +87,13 @@ const Maker = ({ authService }) => {
     <section className="maker-wrap">
       <Header onLogout={onLogout} />
       <div className="maker-content">
-        <MakerEditor cards={cards} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard} />
+        <MakerEditor 
+          FileInput={FileInput} 
+          cards={cards} 
+          addCard={createOrUpdateCard} 
+          updateCard={createOrUpdateCard} 
+          deleteCard={deleteCard}
+        />
         <MakerPreview cards={cards} />
       </div>
       <Footer />

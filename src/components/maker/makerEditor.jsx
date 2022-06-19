@@ -2,7 +2,7 @@ import React from 'react';
 import CardAddForm from './cardAddForm';
 import CardEditForm from './cardEditForm';
 
-const MakerEditor = ({ cards, addCard, updateCard, deleteCard }) => {
+const MakerEditor = ({ FileInput, cards, addCard, updateCard, deleteCard }) => {
   return (
     <div className="maker-editor">
       <h2 className="maker-title">Card Editor</h2>
@@ -11,13 +11,17 @@ const MakerEditor = ({ cards, addCard, updateCard, deleteCard }) => {
           Object.keys(cards).map(key => (
             <CardEditForm
               key={key}
+              FileInput={FileInput} 
               card={cards[key]}
               updateCard={updateCard}
               deleteCard={deleteCard}
             />
           ))
         }
-        <CardAddForm onAdd={addCard} />
+        <CardAddForm
+          FileInput={FileInput} 
+          onAdd={addCard}
+        />
       </ul>
     </div>
   )

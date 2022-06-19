@@ -28,6 +28,11 @@
     border: 1px solid $makerGrey;
     color: $makerBlack;
   }
+
+  &-grey {
+    background-color: $makerDarkWhite;
+    color: $makerBlack;
+  }
   
   &-blue {
     background-color: $makerBlue;
