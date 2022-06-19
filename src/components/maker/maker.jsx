@@ -5,58 +5,77 @@ import Header from '../header';
 import MakerEditor from './makerEditor';
 import MakerPreview from './makerPreview';
 
-const Maker = ({ FileInput, authService }) => {
+const Maker = ({ FileInput, authService, cardRepository }) => {
   // 배열을 쭉 검색하는 것보다는 object 방식으로 key를 찾아서 업데이트하는 방식이 더 빠름
-  const [cards, setCards] = useState(
-    {
-      1: {
-        id: '1',
-        name: '서재영',
-        company: 'Hivelab',
-        title: 'Web Developer',
-        email: 'email@email.com',
-        message: 'Not all those who wander are lost.',
-        theme: 'Dark',
-        fileName: null,
-        fileURL: null
-      },
-      2: {
-        id: '2',
-        name: '죠르디',
-        company: 'NINIZ',
-        title: 'Freeter',
-        email: 'jordi@email.com',
-        message: '니니니 니니니니니',
-        theme: 'Jordi',
-        fileName: null,
-        fileURL: null
-      },
-      3: {
-        id: '3',
-        name: '농담곰',
-        company: 'Nagano\'s Market',
-        title: 'Kuma',
-        email: 'kuma@email.com',
-        message: '맛있어',
-        theme: 'Light',
-        fileName: null,
-        fileURL: null
-      }
-    }
-  )
+  // const [cards, setCards] = useState(
+  //   {
+  //     1: {
+  //       id: '1',
+  //       name: '서재영',
+  //       company: 'Hivelab',
+  //       title: 'Web Developer',
+  //       email: 'email@email.com',
+  //       message: 'Not all those who wander are lost.',
+  //       theme: 'Dark',
+  //       fileName: null,
+  //       fileURL: null
+  //     },
+  //     2: {
+  //       id: '2',
+  //       name: '죠르디',
+  //       company: 'NINIZ',
+  //       title: 'Freeter',
+  //       email: 'jordi@email.com',
+  //       message: '니니니 니니니니니',
+  //       theme: 'Jordi',
+  //       fileName: null,
+  //       fileURL: null
+  //     },
+  //     3: {
+  //       id: '3',
+  //       name: '농담곰',
+  //       company: 'Nagano\'s Market',
+  //       title: 'Kuma',
+  //       email: 'kuma@email.com',
+  //       message: '맛있어',
+  //       theme: 'Light',
+  //       fileName: null,
+  //       fileURL: null
+  //     }
+  //   }
+  // )
+
+
   const navigate = useNavigate();
+  const [cards, setCards] = useState({});
+  // 사용자 ID
+  const historyState = navigate?.location?.state;
+  const [userId, setUserId] = useState(historyState && historyState.id);
+
   const onLogout = () => {
     authService.logout();
   }
 
+  // 로그인
   useEffect(() => {
     authService
       .onAuthChange(user => {
-        if(!user) {
+        if (user) {
+          setUserId(user.uid);
+        } else {
           navigate('/');
         }
       })
   })
+
+  // DB저장
+  useEffect(() => {
+    if (!userId) return;
+    const stopSync = cardRepository.syncCard(userId, cards => {
+      setCards(cards);
+    })
+    return () => stopSync();
+  }, [userId]);
 
   const createOrUpdateCard = (card) => {
     // 일반적인 기존 방법
@@ -73,6 +92,8 @@ const Maker = ({ FileInput, authService }) => {
       updated[card.id] = card;
       return updated;
     });
+
+    cardRepository.saveCard(userId, card);
   }
 
   const deleteCard = (card) => {
@@ -81,6 +102,8 @@ const Maker = ({ FileInput, authService }) => {
       delete updated[card.id];
       return updated;
     });
+
+    cardRepository.removeCard(userId, card);
   }
 
   return (

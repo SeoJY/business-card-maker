@@ -1,8 +1,10 @@
 .wrap {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 97px 0 47px;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .inp {
@@ -26,6 +28,7 @@
   }
 
   &-select {
+    height: 35px;
     padding: 0;
 
     &:invalid {

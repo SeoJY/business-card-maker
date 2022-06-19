@@ -4,11 +4,26 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
+
+    .header,
+    .footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .header {
+      top: 0;
+    }
+    .footer {
+      bottom: 0;
+    }
   }
   
   &-content {
     display: flex;
-    flex: 1;
+    min-height: calc(100vh - 144px);
     background-color: $makerWhite;
 
     @media screen and (max-width: $breakPoint) {
@@ -22,11 +37,11 @@
     padding: 30px 50px;
   }
 
-  &-preview {
-    border-left: 1px solid $makerLightGrey;
+  &-editor {
+    border-right: 1px solid $makerLightGrey;
 
     @media screen and (max-width: $breakPoint) {
-      border-top: 1px solid $makerLightGrey;
+      border-bottom: 1px solid $makerLightGrey;
     }
   }
 

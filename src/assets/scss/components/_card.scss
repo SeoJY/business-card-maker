@@ -9,10 +9,12 @@
     overflow: hidden;
     position: relative;
     flex: 0 0 150px;
+    height: 150px;
     border-radius: 50%;
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
     }
     &:after {
       position: absolute;
