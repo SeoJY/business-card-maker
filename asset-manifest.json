@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-business-card-maker/static/css/main.39f1e673.css",
-    "main.js": "/react-business-card-maker/static/js/main.148a32f5.js",
-    "index.html": "/react-business-card-maker/index.html",
-    "main.39f1e673.css.map": "/react-business-card-maker/static/css/main.39f1e673.css.map",
-    "main.148a32f5.js.map": "/react-business-card-maker/static/js/main.148a32f5.js.map"
+    "main.css": "https://seojy.github.io/react-business-card-maker/static/css/main.f649033b.css",
+    "main.js": "https://seojy.github.io/react-business-card-maker/static/js/main.c6208490.js",
+    "index.html": "https://seojy.github.io/react-business-card-maker/index.html",
+    "main.f649033b.css.map": "https://seojy.github.io/react-business-card-maker/static/css/main.f649033b.css.map",
+    "main.c6208490.js.map": "https://seojy.github.io/react-business-card-maker/static/js/main.c6208490.js.map"
   },
   "entrypoints": [
-    "static/css/main.39f1e673.css",
-    "static/js/main.148a32f5.js"
+    "static/css/main.f649033b.css",
+    "static/js/main.c6208490.js"
   ]
 }
