@@ -1,7 +1,8 @@
 import React from 'react';
+import CardAddForm from './cardAddForm';
 import CardEditForm from './cardEditForm';
 
-const MakerEditor = ({ cards }) => {
+const MakerEditor = ({ cards, addCard }) => {
   return (
     <div className="maker-editor">
       <h2 className="maker-title">Card Editor</h2>
@@ -11,6 +12,7 @@ const MakerEditor = ({ cards }) => {
             <CardEditForm card={card} key={card.id} />
           ))
         }
+        <CardAddForm onAdd={addCard} />
       </ul>
     </div>
   )

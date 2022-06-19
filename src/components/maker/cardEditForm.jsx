@@ -1,33 +1,39 @@
-import { React, useState } from 'react';
+import { React, useRef } from 'react';
 import Button from './inputs/button';
 import ImgFileInput from './inputs/imgFileInput';
-import InputText from './inputs/inputText';
 import Option from './inputs/option';
-import Textarea from './inputs/textarea';
-
-
 
 const CardEditForm = ({ card }) => {
   const options = ['Light', 'Dark', 'Jordi'];
   const {name, company, title, email, message, theme} = card; 
+
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const themeRef = useRef();
+  const titleRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+  const formRef = useRef();
+
   const onSubmit = () => {
 
   }
   return (
     <li className="card-editor-form">
-      <form action="">
-        <InputText name="name" value={name} />
-        <InputText name="company" value={company} />
-        <select name="theme" value={theme} className="inp-select">
+      <form ref={formRef} action="">
+        <input ref={nameRef} type="text" name="name" defaultValue={name} placeholder="Name" className="inp-text" />
+        <input ref={companyRef} type="text" name="company" defaultValue={company} placeholder="Company" className="inp-text" />
+        <select name="theme" defaultValue={theme} className="inp-select">
+          <option defaultValue="">--Please choose an option--</option>
           {
-            options.map((option) => (
-              <Option option={option} />
+            options.map((option, index) => (
+              <Option option={option} key={index} />
             ))
           }
         </select>
-        <InputText name="title" value={title} />
-        <InputText name="email" value={email} />
-        <Textarea name="message" value={message} />
+        <input ref={titleRef} type="text" name="title" defaultValue={title} placeholder="Title" className="inp-text" />
+        <input ref={emailRef} type="text" name="email" defaultValue={email} placeholder="Email Address" className="inp-text" />
+        <textarea name="message" defaultValue={message} placeholder="Input message" className="inp-textarea" />
         <div className="card-editor-btn-area">
           <ImgFileInput />
           <Button content="Delete" size="medium" color="blue" onClick={onSubmit} isfull />
