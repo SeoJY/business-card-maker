@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../footer';
 import Header from '../header';
@@ -52,9 +52,9 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const historyState = navigate?.location?.state;
   const [userId, setUserId] = useState(historyState && historyState.id);
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  }
+  }, [authService]);
 
   // 로그인
   useEffect(() => {

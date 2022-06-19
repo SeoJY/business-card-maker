@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import Button from './button';
 
-const ImgFileInput = ({ imageUploader, name, onFileChange }) => {
+const ImgFileInput = memo(({ imageUploader, name, onFileChange }) => {
   const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
@@ -40,6 +40,6 @@ const ImgFileInput = ({ imageUploader, name, onFileChange }) => {
       {loading && <div className="loader"></div> }
     </div>
   );
-};
+});
 
 export default ImgFileInput;

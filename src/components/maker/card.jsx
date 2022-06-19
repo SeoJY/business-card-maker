@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 const DEFAULT_IMAGE = '/images/default_logo.png';
 
-const Card = ({ card }) => {
+const Card = memo(({ card }) => {
   const {name, company, title, email, message, theme, fileURL} = card;
   const imgURL = fileURL || DEFAULT_IMAGE;
   return (
@@ -20,8 +20,8 @@ const Card = ({ card }) => {
         </ul>
       </div>
     </li>
-  )
-};
+  );
+});
 
 function getStyles(theme) {
   switch(theme) {
@@ -32,7 +32,7 @@ function getStyles(theme) {
     case 'Jordi':
       return 'theme-jordi';
     default:
-      return 'Light';
+      return 'theme-light';
   }
 }
 

@@ -1,8 +1,8 @@
-import { React, useRef, useState } from 'react';
+import { memo, React, useRef, useState } from 'react';
 import Button from './inputs/button';
 import Option from './inputs/option';
 
-const CardAddForm = ({ FileInput, onAdd }) => {
+const CardAddForm = memo(({ FileInput, onAdd }) => {
   const options = ['Light', 'Dark', 'Jordi'];
 
   const nameRef = useRef();
@@ -22,7 +22,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
       id: Date.now(),
       name: nameRef.current.value || '',
       company: companyRef.current.value || '',
-      theme: themeRef.current.value || '',
+      theme: themeRef.current.value || 'Light',
       title: titleRef.current.value || '',
       email: emailRef.current.value || '',
       message: messageRef.current.value || '',
@@ -67,7 +67,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
         </div>
       </form>
     </li>
-  )
-};
+  );
+});
 
 export default CardAddForm;
