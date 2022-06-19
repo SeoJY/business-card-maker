@@ -14,12 +14,12 @@ const CardAddForm = ({ onAdd }) => {
   const messageRef = useRef();
   const formRef = useRef();
 
-  const onSubmit = event => {
+  const onSubmitAdd = event => {
     const card = {
       id: Date.now(),
       name: nameRef.current.value || '',
       company: companyRef.current.value || '',
-      theme: themeRef.current.value,
+      theme: themeRef.current.value || 'Light',
       title: titleRef.current.value || '',
       email: emailRef.current.value || '',
       message: messageRef.current.value || '',
@@ -49,7 +49,7 @@ const CardAddForm = ({ onAdd }) => {
         <textarea ref={messageRef} name="message" placeholder="Input message" className="inp-textarea" />
         <div className="card-editor-btn-area">
           <ImgFileInput />
-          <Button content="Add" size="medium" color="blue" isfull onClickFunc={onSubmit} />
+          <Button content="Add" size="medium" color="blue" isfull onClickFunc={onSubmitAdd} />
         </div>
       </form>
     </li>

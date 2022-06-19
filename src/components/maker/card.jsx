@@ -12,11 +12,11 @@ const Card = ({ card }) => {
       </div>
       <div className="card-info">
         <ul>
-          <li className="name"><strong className="blind">Name</strong>{name}</li>
-          <li><strong className="blind">Company</strong>{company}</li>
-          <li><strong className="blind">Title</strong>{title}</li>
-          <li><strong className="blind">Email</strong>{email}</li>
-          <li className="message"><strong className="blind">Message</strong><q>{message}</q></li>
+          {name && <li className="name"><strong className="blind">Name</strong>{name}</li>}
+          {company && <li><strong className="blind">Company</strong>{company}</li>}
+          {title && <li><strong className="blind">Title</strong>{title}</li>}
+          {email && <li><strong className="blind">Email</strong>{email}</li>}
+          {message && <li className="message"><strong className="blind">Message</strong><q>{message}</q></li>}
         </ul>
       </div>
     </li>

@@ -7,8 +7,11 @@ const MakerPreview = ({ cards }) => {
       <h2 className="maker-title">Card Preview</h2>
       <ul className="maker-preview-lst">
         {
-          cards.map((card) => (
-            <Card card={card} key={card.id} />
+          Object.keys(cards).map(key => (
+            <Card
+              key={key}
+              card={cards[key]}
+            />
           ))
         }
       </ul>

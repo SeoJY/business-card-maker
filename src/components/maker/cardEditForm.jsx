@@ -3,7 +3,7 @@ import Button from './inputs/button';
 import ImgFileInput from './inputs/imgFileInput';
 import Option from './inputs/option';
 
-const CardEditForm = ({ card }) => {
+const CardEditForm = ({ card, updateCard, deleteCard }) => {
   const options = ['Light', 'Dark', 'Jordi'];
   const {name, company, title, email, message, theme} = card; 
 
@@ -15,15 +15,26 @@ const CardEditForm = ({ card }) => {
   const messageRef = useRef();
   const formRef = useRef();
 
-  const onSubmit = () => {
+  const onChange = event => {
+    if(event.currentTarget == null) return;
+    event.preventDefault();
 
+    updateCard({
+      ...card,
+      [event.currentTarget.name]: event.currentTarget.value,
+    })
   }
+
+  const onSubmitDelete = () => {
+    deleteCard(card);
+  }
+
   return (
     <li className="card-editor-form">
       <form ref={formRef} action="">
-        <input ref={nameRef} type="text" name="name" defaultValue={name} placeholder="Name" className="inp-text" />
-        <input ref={companyRef} type="text" name="company" defaultValue={company} placeholder="Company" className="inp-text" />
-        <select ref={themeRef} name="theme" defaultValue={theme} className="inp-select">
+        <input ref={nameRef} type="text" name="name" defaultValue={name} placeholder="Name" className="inp-text" onChange={onChange} />
+        <input ref={companyRef} type="text" name="company" defaultValue={company} placeholder="Company" className="inp-text" onChange={onChange} />
+        <select ref={themeRef} name="theme" defaultValue={theme} className="inp-select"onChange={onChange} >
           <option defaultValue="">--Please choose an option--</option>
           {
             options.map((option, index) => (
@@ -31,12 +42,12 @@ const CardEditForm = ({ card }) => {
             ))
           }
         </select>
-        <input ref={titleRef} type="text" name="title" defaultValue={title} placeholder="Title" className="inp-text" />
-        <input ref={emailRef} type="text" name="email" defaultValue={email} placeholder="Email Address" className="inp-text" />
-        <textarea ref={messageRef} name="message" defaultValue={message} placeholder="Input message" className="inp-textarea" />
+        <input ref={titleRef} type="text" name="title" defaultValue={title} placeholder="Title" className="inp-text" onChange={onChange} />
+        <input ref={emailRef} type="text" name="email" defaultValue={email} placeholder="Email Address" className="inp-text" onChange={onChange} />
+        <textarea ref={messageRef} name="message" defaultValue={message} placeholder="Input message" className="inp-textarea" onChange={onChange} />
         <div className="card-editor-btn-area">
           <ImgFileInput />
-          <Button content="Delete" size="medium" color="blue" onClick={onSubmit} isfull />
+          <Button content="Delete" size="medium" color="blue" onClickFunc={onSubmitDelete} isfull />
         </div>
       </form>
     </li>
