@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-const DEFAULT_IMAGE = '/images/default_logo.png';
+const DEFAULT_IMAGE = 'images/default_logo.png';
 
 const Card = memo(({ card }) => {
   const {name, company, title, email, message, theme, fileURL} = card;
