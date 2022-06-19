@@ -22,7 +22,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
       id: Date.now(),
       name: nameRef.current.value || '',
       company: companyRef.current.value || '',
-      theme: themeRef.current.value || 'Light',
+      theme: themeRef.current.value || '',
       title: titleRef.current.value || '',
       email: emailRef.current.value || '',
       message: messageRef.current.value || '',

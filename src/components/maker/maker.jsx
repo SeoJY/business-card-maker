@@ -66,7 +66,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
           navigate('/');
         }
       })
-  })
+  }, [authService, userId, navigate])
 
   // DB저장
   useEffect(() => {
@@ -75,7 +75,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       setCards(cards);
     })
     return () => stopSync();
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   const createOrUpdateCard = (card) => {
     // 일반적인 기존 방법
@@ -93,6 +93,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       return updated;
     });
 
+    // DB에 추가
     cardRepository.saveCard(userId, card);
   }
 
@@ -103,6 +104,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       return updated;
     });
 
+    // DB에서 삭제
     cardRepository.removeCard(userId, card);
   }
 

@@ -29,7 +29,9 @@
 
   &-select {
     height: 35px;
-    padding: 0;
+    padding: 0 5px;
+    background: url('../../images/btn_more_arr.png') 98% 50% no-repeat;
+    background-size: 15px auto;
 
     &:invalid {
       font-weight: 100;
@@ -43,9 +45,10 @@
   }
 
   &-textarea {
-    padding: 0 5px;
+    padding: 10px 5px;
     font-family: $quoteFont;
     font-style: italic;
+    line-height: 1.5;
     resize: none;
   }
 }

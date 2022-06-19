@@ -3,7 +3,7 @@ import React from 'react';
 const DEFAULT_IMAGE = '/images/default_logo.png';
 
 const Card = ({ card }) => {
-  const {name, company, title, email, message, theme, fileName, fileURL} = card;
+  const {name, company, title, email, message, theme, fileURL} = card;
   const imgURL = fileURL || DEFAULT_IMAGE;
   return (
     <li className={`card ${getStyles(theme)}`}>
@@ -31,6 +31,8 @@ function getStyles(theme) {
       return 'theme-light';
     case 'Jordi':
       return 'theme-jordi';
+    default:
+      return 'Light';
   }
 }
 
