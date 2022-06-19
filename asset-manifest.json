@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-business-card-maker/static/css/main.f649033b.css",
-    "main.js": "/react-business-card-maker/static/js/main.6170131f.js",
+    "main.js": "/react-business-card-maker/static/js/main.0f274438.js",
     "index.html": "/react-business-card-maker/index.html",
     "main.f649033b.css.map": "/react-business-card-maker/static/css/main.f649033b.css.map",
-    "main.6170131f.js.map": "/react-business-card-maker/static/js/main.6170131f.js.map"
+    "main.0f274438.js.map": "/react-business-card-maker/static/js/main.0f274438.js.map"
   },
   "entrypoints": [
     "static/css/main.f649033b.css",
-    "static/js/main.6170131f.js"
+    "static/js/main.0f274438.js"
   ]
 }
