@@ -17,12 +17,17 @@ const CardAddForm = ({ onAdd }) => {
   const onSubmit = event => {
     const card = {
       id: Date.now(),
+      name: nameRef.current.value || '',
+      company: companyRef.current.value || '',
       theme: themeRef.current.value,
+      title: titleRef.current.value || '',
+      email: emailRef.current.value || '',
+      message: messageRef.current.value || '',
       fileName: '',
-      fileURL: '',
+      fileURL: ''
     }
 
-    formRef.currunt.reset();
+    formRef.current.reset();
     onAdd(card);
   }
 
@@ -32,7 +37,7 @@ const CardAddForm = ({ onAdd }) => {
         <input ref={nameRef} type="text" name="name" placeholder="Name" className="inp-text" />
         <input ref={companyRef} type="text" name="company" placeholder="Company" className="inp-text" />
         <select ref={themeRef} name="theme" className="inp-select">
-        <option value="">--Please choose an option--</option>
+          <option value="">--Please choose an option--</option>
           {
             options.map((option, index) => (
               <Option option={option} key={index} />
@@ -41,10 +46,10 @@ const CardAddForm = ({ onAdd }) => {
         </select>
         <input ref={titleRef} type="text" name="title" placeholder="Title" className="inp-text" />
         <input ref={emailRef} type="text" name="email" placeholder="Email Address" className="inp-text" />
-        <textarea name="message" placeholder="Input message" className="inp-textarea" />
+        <textarea ref={messageRef} name="message" placeholder="Input message" className="inp-textarea" />
         <div className="card-editor-btn-area">
           <ImgFileInput />
-          <Button content="Add" size="medium" color="blue" onClick={onSubmit} isfull />
+          <Button content="Add" size="medium" color="blue" isfull onClickFunc={onSubmit} />
         </div>
       </form>
     </li>

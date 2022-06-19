@@ -23,7 +23,7 @@ const CardEditForm = ({ card }) => {
       <form ref={formRef} action="">
         <input ref={nameRef} type="text" name="name" defaultValue={name} placeholder="Name" className="inp-text" />
         <input ref={companyRef} type="text" name="company" defaultValue={company} placeholder="Company" className="inp-text" />
-        <select name="theme" defaultValue={theme} className="inp-select">
+        <select ref={themeRef} name="theme" defaultValue={theme} className="inp-select">
           <option defaultValue="">--Please choose an option--</option>
           {
             options.map((option, index) => (
@@ -33,7 +33,7 @@ const CardEditForm = ({ card }) => {
         </select>
         <input ref={titleRef} type="text" name="title" defaultValue={title} placeholder="Title" className="inp-text" />
         <input ref={emailRef} type="text" name="email" defaultValue={email} placeholder="Email Address" className="inp-text" />
-        <textarea name="message" defaultValue={message} placeholder="Input message" className="inp-textarea" />
+        <textarea ref={messageRef} name="message" defaultValue={message} placeholder="Input message" className="inp-textarea" />
         <div className="card-editor-btn-area">
           <ImgFileInput />
           <Button content="Delete" size="medium" color="blue" onClick={onSubmit} isfull />
